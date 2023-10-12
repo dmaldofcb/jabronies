@@ -9,3 +9,16 @@ Scan2Invest is an innovative mobile application that allows customers to easily 
 - **Investment Products**: Scan2Invest also presents customers with a curated list of related investment products associated with the company.
 - **Investment Options**: Customers have the option to explore and invest in these related investment products directly through the app.
 - **User-Friendly**: The user interface is intuitive and easy to navigate, making it accessible for users of all levels of tech-savviness.
+
+## Run Local
+Install Windows and Running Windows, first navigate to the folder *\jabronis\Scan2Invest\backend* and run the following commands:
+    
+    pip install virtualenv
+
+    python -m venv venv
+
+    .\venv\Scripts\activate
+
+    pip install -r requirements.txt
+
+    python .\run.py
