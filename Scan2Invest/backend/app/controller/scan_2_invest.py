@@ -1,9 +1,14 @@
 from flask import Blueprint, jsonify, request
 import os
 import cv2
+from app.service.ImageDetectionService  import ImageDetectionService
+from app.service.ProcessImageService import ProcessImageService
+from app.exceptions import ServiceExceptions
 
 # Create a Blueprint
 scan_2_invest_bp = Blueprint('scan_2_invest', __name__)
+
+GOOGLE_API_KEY = "AIzaSyAbsOeawghwfFOVNFmU8CQp8VzBTfYoH5w"
 
 @scan_2_invest_bp.route("/")
 def home():
@@ -19,46 +24,30 @@ def upload_image():
     if file.filename == '':
         return jsonify(error='No selected file'), 400
 
-    # Ensure the directory exists
-    save_dir = 'temp_image'
-    os.makedirs(save_dir, exist_ok=True)
-    
-    # Ensure the directory exists
-    save_processed_dir = 'processed_image'
-    os.makedirs(save_processed_dir, exist_ok=True)
-    
-    # Save the file temporarily
-    filepath = os.path.join(save_dir, file.filename)
-    file.save(filepath)
-    
-    # Preprocess the image
-    preprocessed_filepath = preprocess_image(filepath, save_processed_dir)
+    try: 
+        # Preprocess the image
+        process_image_service = ProcessImageService()
+        preprocessed_filepath = process_image_service.preprocess_image(file)
 
-    
-    # Dummy response
-    response = {
-        "company": "Example Corp.",
-        "stock_price": 123.45,
-        "investment_options": ["Stock", "Bond", "ETF"],
-        "Image filepath": preprocessed_filepath
-    }
-    
-    return jsonify(response)
-
-def preprocess_image(image_path, save_processed):
-    
-    try:
-        # Load and preprocess the image using OpenCV
-        img = cv2.imread(image_path)
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+        image_detection_service = ImageDetectionService(GOOGLE_API_KEY)
+        image_response = image_detection_service.send_to_vision_api(preprocessed_filepath)
+        brand_name = image_detection_service.extract_logo_description(image_response)
         
-        # Save or return the preprocessed image
-        preprocessed_path = 'preprocessed_' + os.path.basename(image_path)
-        filepath = os.path.join(save_processed, preprocessed_path)
-        print(f"Filepath {filepath}")
-        cv2.imwrite(filepath, blurred)
+        # Dummy response
+        response = {
+            "company": brand_name,
+            "stock_price": 123.45,
+            "investment_options": ["Stock", "Bond", "ETF"],
+            "Image Name": file.filename,
+        }
+        return jsonify(response), 200
+    
+    except ServiceExceptions.ServiceError as e:
+        print(str(e))
+        # Return a 500 error to the client with the error message from the service
+        return jsonify(error="Upload Image Failure", message=str(e)), 500
     except Exception as e:
-        print(f"Failed to Preprocess image error: {e}")
-        return None    
-    return preprocessed_path
+        print(str(e))
+        # Return a 500 error to the client with the error message from the service
+        return jsonify(error="Internal Server Error", message=str(e)), 500
+    
