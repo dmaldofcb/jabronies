@@ -157,6 +157,8 @@ cython_debug/
 
 prediction_model/
 flickr_logos_27_dataset/
+*original_image/
+*processed_image/
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

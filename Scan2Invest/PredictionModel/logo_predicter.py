@@ -5,10 +5,10 @@ from PIL import Image
 import sys
 
 # Replace with the path to your model
-MODEL_PATH = 'Scan2Invest\\PredictionModel\\prediction_model\logo_recognition_model.keras'
+MODEL_PATH = 'prediction_model\logo_recognition_model.keras'
 
 # Replace with the path to the image you want to predict
-IMAGE_PATH = 'Scan2Invest\\PredictionModel\\data\\validation\\Starbucks\\2421111243.jpg'
+IMAGE_PATH = 'data\\validation\\Starbucks\\2421111243.jpg'
 
 # Load the pre-trained model
 model = tf.keras.models.load_model(MODEL_PATH)

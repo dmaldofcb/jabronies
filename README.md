@@ -11,7 +11,7 @@ Scan2Invest is an innovative mobile application that allows customers to easily 
 - **User-Friendly**: The user interface is intuitive and easy to navigate, making it accessible for users of all levels of tech-savviness.
 
 ## Run Local
-Install Windows and Running Windows, first navigate to the folder *\Scan2Invest\backend* and run the following commands:
+Install Windows and Running Windows, first navigate to the folder *\Scan2Invest* and run the following commands:
     
     pip install virtualenv
 
@@ -22,6 +22,8 @@ Install Windows and Running Windows, first navigate to the folder *\Scan2Invest\
     pip install -r requirements.txt
 
     python .\run.py
+
+You should now have a virtual environment folder setup that is the interpreter you want to use *\Scan2Invest\venv*
 
 ## Generate Prediction Model
 Navigate to folder *\Scan2Invest\PredictionModel*, the data set used to train is only trained on 27 company logos

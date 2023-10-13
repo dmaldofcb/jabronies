@@ -3,6 +3,7 @@ from keras.applications import MobileNetV2
 from keras import layers, models
 from keras.preprocessing.image import ImageDataGenerator
 import os
+
 # Data Augmentation
 train_datagen = ImageDataGenerator(
     rescale=1./255,
@@ -15,14 +16,14 @@ train_datagen = ImageDataGenerator(
 validation_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(
-    'Scan2Invest\\PredictionModel\\data\\train',
+    'data\\train',
     target_size=(224, 224),
     batch_size=32,
     class_mode='categorical'
 )
 
 validation_generator = validation_datagen.flow_from_directory(
-    'Scan2Invest\\PredictionModel\\data\\validation',
+    'data\\validation',
     target_size=(224, 224),
     batch_size=32,
     class_mode='categorical'
@@ -52,6 +53,7 @@ history = model.fit(
 current_folder = os.path.abspath(os.path.dirname(__file__))
 os.makedirs(current_folder + "\prediction_model", exist_ok=True)
 save_path = os.path.join(current_folder, "prediction_model\logo_recognition_model.keras")
+
 print(f"FilePath {save_path}")
 # Save the Model
 model.save(save_path)
