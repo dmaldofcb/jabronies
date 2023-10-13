@@ -11,7 +11,7 @@ Scan2Invest is an innovative mobile application that allows customers to easily 
 - **User-Friendly**: The user interface is intuitive and easy to navigate, making it accessible for users of all levels of tech-savviness.
 
 ## Run Local
-Install Windows and Running Windows, first navigate to the folder *\jabronis\Scan2Invest\backend* and run the following commands:
+Install Windows and Running Windows, first navigate to the folder *\Scan2Invest\backend* and run the following commands:
     
     pip install virtualenv
 
@@ -22,3 +22,10 @@ Install Windows and Running Windows, first navigate to the folder *\jabronis\Sca
     pip install -r requirements.txt
 
     python .\run.py
+
+## Generate Prediction Model
+Navigate to folder *\Scan2Invest\PredictionModel*, the data set used to train is only trained on 27 company logos
+- **Download Data**: first download the dataset we are using flicker_logos_27_dataset which is avaliable to the public first run the script *download_dataset.py*
+- **Clean/Process Data**: we must clean the data, so that it is formatted correct format to generate the model run the script *pre_process_data.py*
+- **Generate the model**: now we can generate the prediction model by runnig the script *generate_prediction_model.py*
+- **Test Model**: we can test the model by giving it a image path and running the script *logo_predictor.py*
