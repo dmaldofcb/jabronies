@@ -4,15 +4,14 @@ from app.service.ProcessImageService import ProcessImageService
 from app.service.StockFinderService import StockFinderService
 from app.exceptions import ServiceExceptions
 import json
+from config import ConfigManager
 
 # Create a Blueprint
 scan_2_invest_bp = Blueprint('scan_2_invest', __name__)
 
-GOOGLE_API_KEY = "AIzaSyAbsOeawghwfFOVNFmU8CQp8VzBTfYoH5w"
+GOOGLE_API_KEY = ConfigManager.GOOGLE_API
 
-FINNHUB_API_KEY = "ckka2h1r01qnn8pdrve0ckka2h1r01qnn8pdrveg"
-
-VANTAGE_API_KEY = "HG0FUC5NRMPPPCLX"
+VANTAGE_API_KEY = ConfigManager.ALPHA_VANTAGE_API
 
 @scan_2_invest_bp.route("/")
 def home():
