@@ -1,8 +1,6 @@
 import tensorflow as tf
-from keras.preprocessing import image
 import numpy as np
 from PIL import Image
-import sys
 
 # Replace with the path to your model
 MODEL_PATH = 'prediction_model\logo_recognition_model.keras'
@@ -26,7 +24,7 @@ CLASS_LABELS = [
 # Load, resize and preprocess the image
 img = Image.open(IMAGE_PATH)
 img = img.resize((224, 224))  # Replace with size model was trained on
-img_array = image.img_to_array(img)
+img_array = tf.keras.preprocessing.image.img_to_array(img)
 img_array = np.expand_dims(img_array, axis=0)
 img_array /= 255.  # If model was trained with normalized images
 
