@@ -2,6 +2,9 @@
 
 Scan2Invest is an innovative mobile application that allows customers to easily access information about a product's company and related investment products through a simple picture scan. With Scan2Invest, customers can make informed investment decisions on the go.
 
+# Demo 
+You can find a quick demo of our application in this youtube link https://youtu.be/gOqkaxW6vo8
+
 ## Features
 
 - **Product Scan**: Customers upload and image of a product using web application.
@@ -30,3 +33,7 @@ Navigate to folder *\Scan2Invest\PredictionModel*, the data set used to train is
 - **Clean/Process Data**: we must clean the data, so that it is formatted correct format to generate the model run the script *pre_process_data.py*
 - **Generate the model**: now we can generate the prediction model by runnig the script *generate_prediction_model.py*
 - **Test Model**: we can test the model by giving it a image path and running the script *logo_predictor.py*
+
+# jabronies-ui
+The ui is a angular application it is pretty simple so if you want to see it can be found in this repository https://github.com/AaronJAdler/jabronies-ui
+
