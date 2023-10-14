@@ -15,7 +15,8 @@ VANTAGE_API_KEY = ConfigManager.ALPHA_VANTAGE_API
 
 @scan_2_invest_bp.route("/")
 def home():
-    return "Welcome to Scan2Invest!"
+    print("Welcome to Scan2Invest!")
+    return '<h1>Welcome to Scan2Invest API</h1>'
 
 @scan_2_invest_bp.route("/possibleinvestment", methods=['POST'])
 def build_investment():
