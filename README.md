@@ -4,11 +4,10 @@ Scan2Invest is an innovative mobile application that allows customers to easily 
 
 ## Features
 
-- **Product Scan**: Customers take a picture of a product.
+- **Product Scan**: Customers upload and image of a product using web application.
 - **Company Information**: The application instantly provides detailed information about the company that produces the scanned product.
 - **Investment Products**: Scan2Invest also presents customers with a curated list of related investment products associated with the company.
-- **Investment Options**: Customers have the option to explore and invest in these related investment products directly through the app.
-- **User-Friendly**: The user interface is intuitive and easy to navigate, making it accessible for users of all levels of tech-savviness.
+- **Investment Options**: Customers have the option to explore and invest in these related investment products directly through the web app.
 
 ## Run Local
 Install Windows and Running Windows, first navigate to the folder *\Scan2Invest* and run the following commands:
