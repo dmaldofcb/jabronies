@@ -155,6 +155,7 @@ cython_debug/
 *.tar.gz
 *.tgz
 
+myEnv/
 prediction_model/
 flickr_logos_27_dataset/
 *original_image/
