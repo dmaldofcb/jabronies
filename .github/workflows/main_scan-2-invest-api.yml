@@ -32,7 +32,7 @@ jobs:
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./* -x PredictionModel/\*
+        run: zip -r release.zip ./* -x "Scan2Invest/PredictionModel/*"
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
@@ -65,3 +65,4 @@ jobs:
           app-name: 'Scan-2-Invest-Api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EF762B18500541D68F91B4CE49E963E6 }}
+          package: './Scan2Invest'
