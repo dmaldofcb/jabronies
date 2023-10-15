@@ -22,12 +22,6 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Create and start virtual environment
-        run: |
-          cd Scan2Invest/
-          python -m venv venv
-          source venv/bin/activate
-
       - name: Install dependencies
         run: pip install -r Scan2Invest/requirements.txt
 
