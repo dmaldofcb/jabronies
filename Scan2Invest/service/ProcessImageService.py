@@ -1,6 +1,6 @@
 import os
 import cv2
-from app.exceptions import ServiceExceptions
+from exceptions import ServiceExceptions
 
 
 class ProcessImageService:

@@ -1,7 +1,5 @@
 import requests
-import json
-import finnhub
-from app.exceptions import ServiceExceptions
+from exceptions import ServiceExceptions
 
 class StockFinderService:
     

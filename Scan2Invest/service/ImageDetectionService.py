@@ -1,7 +1,7 @@
 import base64
 import requests
 import json
-from app.exceptions import ServiceExceptions
+from exceptions import ServiceExceptions
 
 class ImageDetectionService:
     

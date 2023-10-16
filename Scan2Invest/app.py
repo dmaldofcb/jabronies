@@ -1,9 +1,10 @@
 from flask import Flask
 from flask_cors import CORS
-from app.controller import scan_2_invest
-from app import create_app
+from controller import scan_2_invest
 
-app = create_app()
+app = Flask(__name__)
+app.register_blueprint(scan_2_invest.scan_2_invest_bp)
+
 CORS(app)
 
 if __name__ == "__main__":

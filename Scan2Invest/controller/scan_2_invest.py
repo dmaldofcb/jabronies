@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
-from app.service.ImageDetectionService  import ImageDetectionService
-from app.service.ProcessImageService import ProcessImageService
-from app.service.StockFinderService import StockFinderService
-from app.exceptions import ServiceExceptions
+from service.ImageDetectionService  import ImageDetectionService
+from service.ProcessImageService import ProcessImageService
+from service.StockFinderService import StockFinderService
+from exceptions import ServiceExceptions
 import json
 from config import ConfigManager
 
