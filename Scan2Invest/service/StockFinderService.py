@@ -1,5 +1,5 @@
 import requests
-from exceptions import ServiceExceptions
+from ..exceptions.ServiceExceptions import ServiceError
 
 class StockFinderService:
     
@@ -25,7 +25,7 @@ class StockFinderService:
 
         except Exception as e:
             print(f"Error in stock finder {e}")
-            raise ServiceExceptions.ServiceError(f"Error retrieving ticker information: {str(e)}")
+            raise ServiceError(f"Error retrieving ticker information: {str(e)}")
     
     def lookup_symbol(self, name):
         try:
@@ -43,7 +43,7 @@ class StockFinderService:
                 return {"error": "API Symbol Lookupt Request Failed", "message": f"Status Code: {response.status_code}"}
         except Exception as e:
             print(f"Error in stock finder {e}")
-            raise ServiceExceptions.ServiceError(f"Error retrieving symbol information: {str(e)}")
+            raise ServiceError(f"Error retrieving symbol information: {str(e)}")
         
     def build_possible_investment(self, company_keyword, top_n=3):
         try:
@@ -67,6 +67,6 @@ class StockFinderService:
             return ivestment_json
         except Exception as e:
             print(f"Error building possible investments {e}")
-            raise ServiceExceptions.ServiceError(f"Error retrieving possible investment information: {str(e)}")
+            raise ServiceError(f"Error retrieving possible investment information: {str(e)}")
         
 

@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_cors import CORS
-from controller import scan_2_invest
+from Scan2Invest.controller.scan_2_invest import scan_2_invest_bp
 
 app = Flask(__name__)
-app.register_blueprint(scan_2_invest.scan_2_invest_bp)
+app.register_blueprint(scan_2_invest_bp)
 
 CORS(app)
 

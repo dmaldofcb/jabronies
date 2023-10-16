@@ -1,7 +1,7 @@
 import base64
 import requests
 import json
-from exceptions import ServiceExceptions
+from ..exceptions.ServiceExceptions import ServiceError
 
 class ImageDetectionService:
     
@@ -32,7 +32,7 @@ class ImageDetectionService:
         
         if encoded_image is None:
             print(f"No image could be Encoded returning")
-            raise ServiceExceptions.ServiceError(f"Invalid image could not encode")
+            raise ServiceError(f"Invalid image could not encode")
         
         try:
             
@@ -66,7 +66,7 @@ class ImageDetectionService:
             print(json.dumps(response.json(), indent=4))
         except Exception as e:
             print(f"Error in image detection {e}")
-            raise ServiceExceptions.ServiceError(f"Error Sending Image to Vision API: {str(e)}")
+            raise ServiceError(f"Error Sending Image to Vision API: {str(e)}")
         
         # Handle the API response
         if response.status_code == 200:

@@ -1,6 +1,6 @@
 import os
 import cv2
-from exceptions import ServiceExceptions
+from ..exceptions.ServiceExceptions import ServiceError
 
 
 class ProcessImageService:
@@ -42,7 +42,7 @@ class ProcessImageService:
             cv2.imwrite(filepath, blurred)
         except Exception as e:
             print(f"Failed to Preprocess image error: {e}")
-            raise ServiceExceptions.ServiceError(f"Error Pre-Processing Image: {str(e)}")
+            raise ServiceError(f"Error Pre-Processing Image: {str(e)}")
     
         return filepath
     

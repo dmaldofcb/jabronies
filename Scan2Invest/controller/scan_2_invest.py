@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request
-from service.ImageDetectionService  import ImageDetectionService
-from service.ProcessImageService import ProcessImageService
-from service.StockFinderService import StockFinderService
-from exceptions import ServiceExceptions
+from ..service.StockFinderService import StockFinderService
+from ..service.ImageDetectionService import ImageDetectionService
+from ..service.ProcessImageService import ProcessImageService
+from ..exceptions.ServiceExceptions import ServiceError
 import json
-from config import ConfigManager
+from ..config import ConfigManager
 
 # Create a Blueprint
 scan_2_invest_bp = Blueprint('scan_2_invest', __name__)
@@ -110,7 +110,7 @@ def upload_image():
         
         return jsonify(response), 200
     
-    except ServiceExceptions.ServiceError as e:
+    except ServiceError as e:
         print(str(e))
         # Return a 500 error to the client with the error message from the service
         return jsonify(error="Upload Image API Failure", message=str(e)), 500
