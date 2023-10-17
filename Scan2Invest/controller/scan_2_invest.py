@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request
-from ..service.StockFinderService import StockFinderService
-from ..service.ImageDetectionService import ImageDetectionService
-from ..service.ProcessImageService import ProcessImageService
-from ..exceptions.ServiceExceptions import ServiceError
+from Scan2Invest.service.StockFinderService import StockFinderService
+from Scan2Invest.service.ImageDetectionService import ImageDetectionService
+from Scan2Invest.service.ProcessImageService import ProcessImageService
+from Scan2Invest.exceptions.ServiceExceptions import ServiceError
 import json
-from ..config import ConfigManager
+from Scan2Invest.config import ConfigManager
 
 # Create a Blueprint
 scan_2_invest_bp = Blueprint('scan_2_invest', __name__)

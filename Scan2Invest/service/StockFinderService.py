@@ -1,5 +1,5 @@
 import requests
-from ..exceptions.ServiceExceptions import ServiceError
+from Scan2Invest.exceptions.ServiceExceptions import ServiceError
 
 class StockFinderService:
     

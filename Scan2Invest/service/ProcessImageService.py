@@ -1,6 +1,6 @@
 import os
 import cv2
-from ..exceptions.ServiceExceptions import ServiceError
+from Scan2Invest.exceptions.ServiceExceptions import ServiceError
 
 
 class ProcessImageService:
