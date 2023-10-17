@@ -48,6 +48,8 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    env:
+      FLASK_APP: app.py
 
     steps:
       - name: Download artifact from build job
