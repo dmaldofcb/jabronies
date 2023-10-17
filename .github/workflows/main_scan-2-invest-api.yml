@@ -49,7 +49,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     env:
-      FLASK_APP: app.py
+      FLASK_APP: Scan2Invest.app
 
     steps:
       - name: Download artifact from build job

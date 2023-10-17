@@ -1,7 +1,7 @@
 import base64
 import requests
 import json
-from Scan2Invest.exceptions.ServiceExceptions import ServiceError
+from exceptions.ServiceExceptions import ServiceError
 
 class ImageDetectionService:
     
