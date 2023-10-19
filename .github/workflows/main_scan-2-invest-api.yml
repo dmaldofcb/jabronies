@@ -57,6 +57,9 @@ jobs:
           name: python-app
           path: .
 
+      - name: Wait for 10 minutes
+        run: sleep 600
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
