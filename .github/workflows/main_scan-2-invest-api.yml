@@ -31,16 +31,15 @@ jobs:
         run: pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name: Zip artifact for deployment
-        run: zip -r release.zip ./* -x "venv/*" "Scan2Invest/PredictionModel/*"
 
-      - name: Upload artifact for deployment jobs
+      - name: Upload source for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
-            release.zip
+            ./*
             !venv/
+            !Scan2Invest/PredictionModel/*
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,14 +51,11 @@ jobs:
       FLASK_APP: Scan2Invest.app
 
     steps:
-      - name: Download artifact from build job
+      - name: Download source from build job
         uses: actions/download-artifact@v2
         with:
           name: python-app
           path: .
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
