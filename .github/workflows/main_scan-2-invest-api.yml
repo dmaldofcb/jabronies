@@ -64,3 +64,4 @@ jobs:
           app-name: 'Scan-2-Invest-Api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EF762B18500541D68F91B4CE49E963E6 }}
+        timeout-minutes: 20  # Increase the timeout to 30 minutes for this step
